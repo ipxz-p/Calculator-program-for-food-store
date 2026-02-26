@@ -8,10 +8,11 @@ import { formatPrice } from "@/lib/format";
 
 interface CartDrawerProps {
   open: boolean;
+  onOpen: () => void;
   onClose: () => void;
 }
 
-export function CartDrawer({ open, onClose }: CartDrawerProps) {
+export function CartDrawer({ open, onOpen, onClose }: CartDrawerProps) {
   const totalItems = useCartStore(selectTotalItems);
   const priceBreakdown = useCartStore((s) => s.priceBreakdown);
   const isCalculating = useCartStore((s) => s.isCalculating);
@@ -54,7 +55,7 @@ export function CartDrawer({ open, onClose }: CartDrawerProps) {
           }}
         >
           <Button
-            onClick={onClose}
+            onClick={onOpen}
             fullWidth
             variant="contained"
             disableElevation

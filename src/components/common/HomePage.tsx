@@ -61,6 +61,7 @@ export default function HomePage() {
 
       <CartDrawer
         open={cartOpen}
+        onOpen={() => setCartOpen(true)}
         onClose={() => setCartOpen(false)}
       />
     </Box>
